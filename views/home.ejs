@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Homepage</title>
+    <style>
+      body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f0f0f0;
+          text-align: center;
+          height:100vh;
+        
+      }
+
+      h1 {
+          color: #333;
+      }
+
+      img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 10px;
+          margin-top: 20px;
+      }
+
+      p {
+          color: #555;
+      }
+
+      .body {
+          max-width: 700px;
+          height: 30rem;
+          padding: 1rem;
+          margin: 10px auto;
+          border: solid 1px #ccc;
+          border-radius: 10px;
+
+
+      }
+  </style>
+  </head>
+  <body>
+   
+    <%- include('./partials/nav') %>
+
+    <div class="body">
+      <h1>Welcome to Our Website</h1>
+
+    <!-- Add your image source (src) and alt text -->
+
+      <img src="https://images.unsplash.com/photo-1622838013147-8b9b5b5e9b0b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmxvZ3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="A beautiful image of a mountain and lake">
+      <h2>Hi, I'm Himanshu Yadav</h2>
+      <p>I'm a full-stack web developer and designer. I love coding and learning new things.</p>
+      <p>I'm currently working on a project called HimBlog. It's a blog website where you can read and write blogs.</p>
+      <p>Feel free to contact me if you have any questions.</p>
+      <p>Thank you for visiting my website!</p>
+      <p>Have a nice day!</p>
+     
+
+    <p>This is the homepage of our website. Feel free to explore!</p>
+    </div>
+     
+
+    <div class="container mt-3">
+      <div class="row row-cols-4">
+        <% blogs.forEach(blog => { %>
+        <div class="col">
+          <div class="card col" style="width: 18rem">
+            <img src="<%= blog.coverImageURL %>" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title"><%= blog.title %></h5>
+              <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+
+    <%- include('./partials/scripts') %>
+  </body>
+</html>
